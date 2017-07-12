@@ -390,7 +390,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libicuuc.vendor \
     libstdc++.vendor \
-    vndk_package
+    vndk_package \
+    vndk-sp
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
