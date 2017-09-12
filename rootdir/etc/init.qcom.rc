@@ -577,6 +577,18 @@ on property:persist.sys.start_wdsdaemon=1
 on property:persist.sys.start_wdsdaemon=0
     stop wdsdaemon
 
+on property:ro.vendor.iocgrp.config=1
+    mkdir /dev/blkio
+    mount cgroup none /dev/blkio blkio
+    chown system system /dev/blkio
+    chown system system /dev/blkio/tasks
+    chmod 0664 /dev/blkio/tasks
+    mkdir /dev/blkio/bg 0755 system system
+    chown system system /dev/blkio/bg/tasks
+    chmod 0664 /dev/blkio/bg/tasks
+    write /dev/blkio/blkio.weight 1000
+    write /dev/blkio/bg/blkio.weight 100
+
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
 
