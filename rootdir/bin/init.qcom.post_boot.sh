@@ -554,7 +554,7 @@ chown -h system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 chown -h system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 
 
-setprop sys.post_boot.parsed 1
+setprop vendor.post_boot.parsed 1
 
 # Let kernel know our image version/variant/crm_version
 if [ -f /sys/devices/soc0/select_image ]; then
