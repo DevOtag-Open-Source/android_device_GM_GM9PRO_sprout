@@ -57,7 +57,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.exif.rotation=off \
     persist.camera.hvx.rotation=1 \
     persist.camera.imglib.usefdlite=1 \
-    persist.camera.lib2d.rotation=on
+    persist.camera.lib2d.rotation=on \
+    video.disable.ubwc=1
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
