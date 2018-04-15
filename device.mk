@@ -383,12 +383,10 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service \
     android.hardware.vibrator@1.0-impl
 
-# VNDK
 # Update this list with what each blob is actually for
 # libstdc++: hexagon DSP blobs
 PRODUCT_PACKAGES += \
-    libstdc++.vendor \
-    vndk-sp
+    libstdc++.vendor
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
