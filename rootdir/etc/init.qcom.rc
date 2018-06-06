@@ -1109,6 +1109,9 @@ on property:init.svc.surfaceflinger=restarting
     stop hwcomposer-2-1
     start hwcomposer-2-1
 
+on property:vendor.display.lcd_density=*
+    setprop ro.sf.lcd_density ${vendor.display.lcd_density}
+
 service time_daemon /vendor/bin/time_daemon
     class main
     user root
