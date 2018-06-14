@@ -123,14 +123,11 @@ then
     file=/sys/class/graphics/fb0/mdp/caps
     if [ -f "$file" ]
     then
-        setprop debug.gralloc.gfx_ubwc_disable 1
         setprop vendor.gralloc.disable_ubwc 1
         cat $file | while read line; do
           case "$line" in
                     *"ubwc"*)
-                    setprop debug.gralloc.enable_fb_ubwc 1
                     setprop vendor.gralloc.enable_fb_ubwc 1
-                    setprop debug.gralloc.gfx_ubwc_disable 0
                     setprop vendor.gralloc.disable_ubwc 0
                 esac
         done
