@@ -599,6 +599,9 @@ on post-fs-data
     #Create dir for TUI
     mkdir /data/vendor/tui 0700 system system
 
+    #Start move time data to /data/vendor once post-fs-data done
+    start vendor.move_time_data
+
 service iop /vendor/bin/iop
     class main
     user root
@@ -1137,6 +1140,13 @@ service time_daemon /vendor/bin/time_daemon
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
+
+service vendor.move_time_data /system/bin/move_time_data.sh
+    class main
+    user system
+    group system
+    disabled
+    oneshot
 
 #Set GPU Opengles version
 on property:vendor.opengles.version=*
