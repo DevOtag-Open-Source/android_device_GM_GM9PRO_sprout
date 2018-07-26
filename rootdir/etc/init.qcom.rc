@@ -1096,3 +1096,7 @@ service time_daemon /vendor/bin/time_daemon
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
+
+#Set gpu available frequencies property
+on property:vendor.gpu.available_frequencies=*
+    setprop ro.gpu.available_frequencies ${vendor.gpu.available_frequencies}
