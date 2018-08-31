@@ -119,6 +119,10 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# IRSC
+PRODUCT_COPY_FILES += \
+    device/bq/sdm660-common/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+
 # LED packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.sdm660-common
