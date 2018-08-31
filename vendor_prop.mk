@@ -12,6 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.spk.mono=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
+    persist.vendor.audio.hifi.int_codec=true \
     persist.vendor.audio.ras.enabled=true \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
@@ -44,7 +45,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
     persist.bt.a2dp.aac_disable=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aac \
     qcom.bluetooth.soc=cherokee \
     ro.bluetooth.a4wp=false
 
@@ -55,7 +56,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.expose.aux=1 \
     persist.camera.is_type=3 \
     persist.camera.max.previewfps=60 \
-    vidc.enc.dcvs.extra-buff-count=2
+    vidc.enc.dcvs.extra-buff-count=2 \
+    persist.camera.exif.rotation=off \
+    persist.camera.hvx.rotation=1 \
+    persist.camera.imglib.usefdlite=1 \
+    persist.camera.lib2d.rotation=on
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -95,17 +100,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=1 \
     persist.rmnet.data.enable=true \
     persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.rat_on=other \
     persist.vendor.radio.sib16_support=1 \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=10 \
+    ro.telephony.default_network=9,9 \
     ro.use_data_netmgrd=true \
-    telephony.lteOnCdmaDevice=1
+    persist.radio.multisim.config=dsds \
+    persist.radio.proc_nw_scan=1 \
+    persist.radio.rat_on=disabled
 
 # Security Patch Level
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2018-05-01
+    ro.vendor.build.security_patch=2018-07-01
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
