@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+# Properties
+-include device/bq/sdm660-common/vendor_prop.mk
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
