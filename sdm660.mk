@@ -316,6 +316,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl
 
+# Recovery
+PRODUCT_COPY_FILES += \
+    device/bq/zangya/recovery/root/init.recovery.zangya.rc:root/init.recovery.zangya.rc \
+    device/bq/zangya/recovery/root/init.recovery.zangya.usb.rc:root/init.recovery.zangya.usb.rc
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
