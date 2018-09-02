@@ -87,7 +87,15 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_COPY_FILES += \
+    device/bq/sdm660-common/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
     device/bq/sdm660-common/configs/camera/mct_pipeline.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mct_pipeline.xml \
+    device/bq/sdm660-common/configs/camera/s5k2l8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_holitech_zangya_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k2l8_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_ofilm_zangya_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k4h7yx_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k4h7yx_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_holitech_zangya_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k4h7yx_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_ofilm_zangya_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k5e8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_holitech_zangya_chromatix.xml \
+    device/bq/sdm660-common/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
 
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
