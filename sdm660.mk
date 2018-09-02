@@ -96,6 +96,7 @@ PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/camera/s5k4h7yx_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_ofilm_zangya_chromatix.xml \
     device/bq/sdm660-common/configs/camera/s5k5e8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_holitech_zangya_chromatix.xml \
     device/bq/sdm660-common/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
+
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0_32 \
     android.hardware.camera.common@1.0-helper \
@@ -132,6 +133,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.base@1.0_system \
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0-java
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -297,6 +305,15 @@ $(call inherit-product, build/target/product/verity.mk)
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.1-service.sdm660-common
+
+# VNDK
+# Update this list with what each blob is actually for
+# libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
+# libstdc++: hexagon DSP blobs
+PRODUCT_PACKAGES += \
+    libicuuc.vendor \
+    libstdc++.vendor \
+    vndk_package
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
