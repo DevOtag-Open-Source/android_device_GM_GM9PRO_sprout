@@ -141,6 +141,20 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.bq.rc \
+    init.target.rc \
+    init.zangya.usb.rc \
+    init.qcom.devstart.sh \
+    init.qcom.power.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qcom.rc \
+    ueventd.zangya.rc
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \

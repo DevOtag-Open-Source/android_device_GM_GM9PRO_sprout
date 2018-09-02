@@ -1,0 +1,215 @@
+on boot
+    #Vibrator intensity modifier
+    chown system system /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/timed_output/vibrator/wf_s0
+    chown system system /sys/class/timed_output/vibrator/wf_s1
+    chown system system /sys/class/timed_output/vibrator/wf_s2
+    chown system system /sys/class/timed_output/vibrator/wf_s3
+    chown system system /sys/class/timed_output/vibrator/wf_s4
+    chown system system /sys/class/timed_output/vibrator/wf_s5
+    chown system system /sys/class/timed_output/vibrator/wf_s6
+    chown system system /sys/class/timed_output/vibrator/wf_s7
+    chown system system /sys/class/timed_output/vibrator/wf_update_now
+
+    chmod 0660 /sys/class/leds/led:flash_0/brightness
+    chmod 0660 /sys/class/leds/led:flash_1/brightness
+    chmod 0660 /sys/class/leds/led:flash_2/brightness
+    chmod 0660 /sys/class/leds/led:torch_0/brightness
+    chmod 0660 /sys/class/leds/led:torch_1/brightness
+    chmod 0660 /sys/class/leds/led:torch_2/brightness
+    chmod 0660 /sys/class/leds/led:switch_0/brightness
+    chmod 0660 /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/leds/led:flash_0/brightness
+    chown system system /sys/class/leds/led:flash_1/brightness
+    chown system system /sys/class/leds/led:flash_2/brightness
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chown system system /sys/class/leds/led:torch_2/brightness
+    chown system system /sys/class/leds/led:switch_0/brightness
+    chown system system /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    mkdir /persist/audio 0770 audio audio
+
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+    chown system system /sys/class/leds/red/pause_lo
+    chown system system /sys/class/leds/blue/pause_lo
+    chown system system /sys/class/leds/green/pause_lo
+    chown system system /sys/class/leds/red/pause_hi
+    chown system system /sys/class/leds/blue/pause_hi
+    chown system system /sys/class/leds/green/pause_hi
+    chown system system /sys/class/leds/red/duty_pcts
+    chown system system /sys/class/leds/blue/duty_pcts
+    chown system system /sys/class/leds/green/duty_pcts
+
+
+#add for wifi sar --start
+service wifisarnear /vendor/bin/wifisarnear
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:sys.wifisarnear=1
+    start wifisarnear
+
+service wifisarfar /vendor/bin/wifisarfar
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:sys.wifisarfar=1
+    start wifisarfar
+#add for wifi sar --end
+
+service tpver /vendor/bin/sh /vendor/bin/init.bq.tp.sh
+    class late_start
+    user root
+    oneshot
+
+on property:persist.sys.spk-playback=1
+    start spk_playback1
+
+on property:persist.sys.spk-playback=0
+    start spk_playback0
+
+service tinyhostless_spk /system/vendor/bin/tinyhostless -D 0 -P 35 -C 11 -p 8 -n 2 -c 1 -r 48000
+    user root
+    group root
+    disabled
+    oneshot
+
+service tinyhostless /system/vendor/bin/tinyhostless -D 0 -P 5 -C 11 -p 8 -n 2 -c 1 -r 48000
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.tinyhostless=0
+    stop tinyhostless
+
+on property:sys.tinyhostless=1
+    start tinyhostless
+
+on property:sys.tinyhostless-spk=0
+    stop tinyhostless_spk
+
+on property:sys.tinyhostless-spk=1
+    start tinyhostless_spk
+
+#audio loopback test end
+
+on property:sys.shutdown.requested=*
+   setprop vendor.peripheral.shutdown_critical_list ""
+
+   # Double Tap to Wake
+   chown root system /proc/android_touch/SMWP
+   chmod 0660 /proc/android_touch/SMWP
+
+service tcpdumpall /vendor/bin/tcpdump -i any -p -s 0 -w /sdcard/tcpdump_all.pcap
+   user root
+   group root
+   disabled
+   oneshot
+
+on property:persist.tcpd.all.enable=1
+   start tcpdumpall
+
+on property:persist.tcpd.all.enable=0
+   stop tcpdumpall
+
+service tcpdumpwifi /vendor/bin/tcpdump -i wlan0 -p -s 0 -w /sdcard/tcpdump_wifi.pcap
+   user root
+   group root
+   disabled
+   oneshot
+
+on property:persist.tcpd.wifi.enable=1
+   start tcpdumpwifi
+
+on property:persist.tcpd.wifi.enable=0
+   stop tcpdumpwifi
+
+service diag_mdlog /vendor/bin/diag_mdlog
+    user root
+    disabled
+    oneshot
+
+service stop_diag_mdlog /vendor/bin/diag_mdlog -k
+    user root
+    disabled
+    oneshot
+
+on property:persist.qxdm.enable=1
+    start diag_mdlog
+
+on property:persist.qxdm.enable=0
+    start stop_diag_mdlog
+
+on property:sys.boot_completed=1
+    #tp version
+    start tpver
+
+on property:sys.monkey.state=1
+    mkdir /acct/uid_0/random_test
+    write /acct/uid_0/random_test/cgroup.procs ${sys.monkey.pid} 
+
+on property:sys.monkey.state=0
+    rmdir /acct/uid_0/random_test
+
+on property:persist.wlan.cnss_diag=1
+    start cnss_diag
+
+on property:persist.wlan.cnss_diag=0
+    stop cnss_diag
+
+service pcmodeon /vendor/bin/sh /vendor/bin/bq.pcmode.sh 0 1
+    class late_start
+    user root
+    oneshot
+    disabled
+
+service pcmodeoff /vendor/bin/sh /vendor/bin/bq.pcmode.sh 1 0
+    class late_start
+    user root
+    oneshot
+    disabled
+
+on property:sys.pcmode=1
+    start pcmodeon
+
+on property:sys.pcmode=0
+    start pcmodeoff
+
+on property:sys.boot_completed=1
+    setprop persist.vendor.dpm.nsrm 3
+    setprop persist.vendor.dpm.feature 7
+
+on post-fs-data
+    mkdir /data/fpc 0700 system system
+
+on property:vold.decrypt=trigger_restart_framework
+    start qcom-c_main-sh
+    start wcnss-service
+    start config_bt_addr
+
+service config_bt_addr /vendor/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
+
+service wdsdaemon /vendor/bin/wdsdaemon -su
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:persist.sys.start_wdsdaemon=1
+    start wdsdaemon
+
+on property:persist.sys.start_wdsdaemon=0
+    stop wdsdaemon
+
