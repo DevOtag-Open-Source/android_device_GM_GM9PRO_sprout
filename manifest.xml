@@ -209,10 +209,12 @@
         <interface>
             <name>IRadio</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
         <interface>
             <name>ISap</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -222,6 +224,7 @@
         <interface>
             <name>IOemHook</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -266,15 +269,6 @@
         <version>1.0</version>
         <interface>
             <name>IOffloadControl</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.thermal</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IThermal</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -460,6 +454,7 @@
         <interface>
             <name>IQcRilAudio</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -478,6 +473,7 @@
         <interface>
             <name>IConfig</name>
             <instance>radioconfig0</instance>
+            <instance>radioconfig1</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -496,6 +492,7 @@
         <interface>
             <name>IQtiOemHook</name>
             <instance>oemhook0</instance>
+            <instance>oemhook1</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -505,6 +502,7 @@
         <interface>
             <name>IQtiRadio</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -514,6 +512,7 @@
         <interface>
             <name>IUim</name>
             <instance>Uim0</instance>
+            <instance>Uim1</instance>
         </interface>
     </hal>
     <hal format="hidl">
