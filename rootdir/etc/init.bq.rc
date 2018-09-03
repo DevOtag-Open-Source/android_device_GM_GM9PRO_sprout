@@ -108,46 +108,6 @@ on property:sys.shutdown.requested=*
    chown root system /proc/android_touch/SMWP
    chmod 0660 /proc/android_touch/SMWP
 
-service tcpdumpall /vendor/bin/tcpdump -i any -p -s 0 -w /sdcard/tcpdump_all.pcap
-   user root
-   group root
-   disabled
-   oneshot
-
-on property:persist.tcpd.all.enable=1
-   start tcpdumpall
-
-on property:persist.tcpd.all.enable=0
-   stop tcpdumpall
-
-service tcpdumpwifi /vendor/bin/tcpdump -i wlan0 -p -s 0 -w /sdcard/tcpdump_wifi.pcap
-   user root
-   group root
-   disabled
-   oneshot
-
-on property:persist.tcpd.wifi.enable=1
-   start tcpdumpwifi
-
-on property:persist.tcpd.wifi.enable=0
-   stop tcpdumpwifi
-
-service diag_mdlog /vendor/bin/diag_mdlog
-    user root
-    disabled
-    oneshot
-
-service stop_diag_mdlog /vendor/bin/diag_mdlog -k
-    user root
-    disabled
-    oneshot
-
-on property:persist.qxdm.enable=1
-    start diag_mdlog
-
-on property:persist.qxdm.enable=0
-    start stop_diag_mdlog
-
 on property:sys.boot_completed=1
     #tp version
     start tpver
@@ -164,24 +124,6 @@ on property:persist.wlan.cnss_diag=1
 
 on property:persist.wlan.cnss_diag=0
     stop cnss_diag
-
-service pcmodeon /vendor/bin/sh /vendor/bin/bq.pcmode.sh 0 1
-    class late_start
-    user root
-    oneshot
-    disabled
-
-service pcmodeoff /vendor/bin/sh /vendor/bin/bq.pcmode.sh 1 0
-    class late_start
-    user root
-    oneshot
-    disabled
-
-on property:sys.pcmode=1
-    start pcmodeon
-
-on property:sys.pcmode=0
-    start pcmodeoff
 
 on property:sys.boot_completed=1
     setprop persist.vendor.dpm.nsrm 3
@@ -212,4 +154,3 @@ on property:persist.sys.start_wdsdaemon=1
 
 on property:persist.sys.start_wdsdaemon=0
     stop wdsdaemon
-

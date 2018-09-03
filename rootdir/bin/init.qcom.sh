@@ -42,6 +42,27 @@ echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 #
 start_copying_prebuilt_qcril_db
 echo 1 > /data/vendor/radio/db_check_done
+if [ -f /sys/devices/soc0/soc_id ]; then
+    platformid=`cat /sys/devices/soc0/soc_id`
+else
+    platformid=`cat /sys/devices/system/soc/soc0/id`
+fi
+
+
+start_msm_irqbalance660()
+{
+	if [ -f /vendor/bin/msm_irqbalance ]; then
+		case "$platformid" in
+		    "317" | "324" | "325" | "326" | "345" | "346")
+			start vendor.msm_irqbalance;;
+		    "318" | "327")
+			start vendor.msm_irqbl_sdm630;;
+		esac
+	fi
+}
+
+
+start_msm_irqbalance660
 
 #
 # Make modem config folder and copy firmware config to that folder for RIL

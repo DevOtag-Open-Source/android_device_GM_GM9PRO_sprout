@@ -1,5 +1,6 @@
-#!/vendor/bin/sh
-# Copyright (c) 2015, The Linux Foundation. All rights reserved.
+#! /vendor/bin/sh
+
+# Copyright (c) 2013-2014, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -27,17 +28,27 @@
 #
 
 #
-# Function to start sensors for SSC enabled platforms
+# start ril-daemon only for targets on which radio is present
 #
-start_sensors()
-{
-    if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
-        chmod -h 775 /persist/sensors
-        chmod -h 664 /persist/sensors/sensors_settings
-        mkdir -p /persist/sensors/registry/registry
-        chown -h system.root /persist/sensors/sensors_settings
-        start sensors
-    fi
-}
+baseband=`getprop ro.baseband`
+datamode=`getprop persist.data.mode`
 
-start_sensors
+start ipacm-diag
+start ipacm
+
+start ril-daemon2
+start qti
+start netmgrd
+start port-bridge
+
+#
+# Allow persistent faking of bms
+# User needs to set fake bms charge in persist.bms.fake_batt_capacity
+#
+fake_batt_capacity=`getprop persist.bms.fake_batt_capacity`
+case "$fake_batt_capacity" in
+    "") ;; #Do nothing here
+    * )
+    echo "$fake_batt_capacity" > /sys/class/power_supply/battery/capacity
+    ;;
+esac
