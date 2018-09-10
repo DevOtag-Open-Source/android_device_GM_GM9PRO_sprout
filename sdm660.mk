@@ -308,9 +308,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
 
-PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
-
 # QCOM
 PRODUCT_COPY_FILES += \
     device/bq/sdm660-common/configs/privapp-permissions-sdm660.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-sdm660.xml \
