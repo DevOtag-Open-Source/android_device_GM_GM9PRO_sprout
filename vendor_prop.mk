@@ -7,6 +7,7 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.spk.mono=true \
@@ -45,17 +46,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     bt.max.hfpclient.connections=1 \
     persist.bt.a2dp.aac_disable=true \
+    persist.vendor.bt.enable.splita2dp=true \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aac \
-    qcom.bluetooth.soc=cherokee \
-    ro.bluetooth.a4wp=false
+    qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.bq.camerabq,com.bq.camerabq.debug,org.lineageos.snap" \
-    persist.camera.camera2=true \
-    persist.camera.expose.aux=1 \
-    persist.camera.is_type=3 \
-    persist.camera.max.previewfps=60 \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.camera.exif.rotation=off \
     persist.camera.hvx.rotation=1 \
@@ -86,20 +83,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1 \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.iwlan_mux=9 \
     persist.data.iwlan.enable=true \
     persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.data_con_rprt=true \
-    persist.rcs.supported=1 \
-    persist.rmnet.data.enable=true \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=other \
+    persist.vendor.radio.proc_nw_scan=1 \
     persist.vendor.radio.sib16_support=1 \
+    persist.vendor.radio.use_se_table_only=1 \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.telephony.default_network=9,9 \
     ro.use_data_netmgrd=true \
