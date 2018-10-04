@@ -75,13 +75,13 @@ on property:persist.sys.spk-playback=1
 on property:persist.sys.spk-playback=0
     start spk_playback0
 
-service tinyhostless_spk /system/vendor/bin/tinyhostless -D 0 -P 35 -C 11 -p 8 -n 2 -c 1 -r 48000
+service tinyhostless_spk /vendor/bin/tinyhostless -D 0 -P 35 -C 11 -p 8 -n 2 -c 1 -r 48000
     user root
     group root
     disabled
     oneshot
 
-service tinyhostless /system/vendor/bin/tinyhostless -D 0 -P 5 -C 11 -p 8 -n 2 -c 1 -r 48000
+service tinyhostless /vendor/bin/tinyhostless -D 0 -P 5 -C 11 -p 8 -n 2 -c 1 -r 48000
     user root
     group root
     disabled
