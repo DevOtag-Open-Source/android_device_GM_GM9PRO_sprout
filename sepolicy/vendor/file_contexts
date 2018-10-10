@@ -23,7 +23,6 @@
 /vendor/bin/hw/android\.hardware\.vibrator@1\.1-service\.zangya u:object_r:hal_vibrator_default_exec:s0
 
 /vendor/bin/init\.zangya\.hdmi\.sh                              u:object_r:qti_init_shell_exec:s0
-/vendor/bin/init\.qcom\.devstart\.sh                          u:object_r:init-qcom-devstart-sh_exec:s0
 /vendor/bin/init\.qcom\.power\.sh                             u:object_r:qti_init_shell_exec:s0
 
 /vendor/usr/keylayout/uinput-fpc.kl                           u:object_r:vendor_keylayout_file:s0
