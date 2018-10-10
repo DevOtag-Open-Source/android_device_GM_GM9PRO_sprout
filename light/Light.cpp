@@ -34,7 +34,6 @@ namespace implementation {
 #define RED_LED         LEDS "red/"
 #define GREEN_LED       LEDS "green/"
 #define BLUE_LED        LEDS "blue/"
-#define RGB_LED         LEDS "rgb/"
 
 #define BRIGHTNESS      "brightness"
 #define DUTY_PCTS       "duty_pcts"
@@ -42,7 +41,16 @@ namespace implementation {
 #define PAUSE_LO        "pause_lo"
 #define PAUSE_HI        "pause_hi"
 #define RAMP_STEP_MS    "ramp_step_ms"
-#define RGB_BLINK       "rgb_blink"
+#define BLINK           "blink"
+#define LUT_FLAGS       "lut_flags"
+
+#define LUT_LOOP        0x01
+#define LUT_RAMP_UP     0x02
+#define LUT_REVERSE     0x04
+#define LUT_PAUSE_HI_EN 0x08
+#define LUT_PAUSE_LO_EN 0x10
+
+#define FLAGS_VALUE (LUT_LOOP | LUT_RAMP_UP | LUT_REVERSE | LUT_PAUSE_HI_EN | LUT_PAUSE_LO_EN)
 
 /*
  * 8 duty percent steps.
@@ -118,9 +126,11 @@ static void handleNotification(const LightState& state) {
     }
 
     /* Disable blinking. */
-    set(RGB_LED RGB_BLINK, 0);
+    set(RED_LED BLINK, 0);
+    set(GREEN_LED BLINK, 0);
+    set(BLUE_LED BLINK, 0);
 
-    if (state.flashMode == Flash::TIMED) {
+    if (state.flashMode == Flash::TIMED && state.flashOnMs != 0 && state.flashOffMs != 0) {
         /*
          * If the flashOnMs duration is not long enough to fit ramping up
          * and down at the default step duration, step duration is modified
@@ -141,6 +151,7 @@ static void handleNotification(const LightState& state) {
         set(RED_LED PAUSE_LO, pauseLo);
         set(RED_LED PAUSE_HI, pauseHi);
         set(RED_LED RAMP_STEP_MS, stepDuration);
+        set(RED_LED LUT_FLAGS, FLAGS_VALUE);
 
         /* Green */
         set(GREEN_LED START_IDX, 1 * RAMP_STEPS);
@@ -148,6 +159,7 @@ static void handleNotification(const LightState& state) {
         set(GREEN_LED PAUSE_LO, pauseLo);
         set(GREEN_LED PAUSE_HI, pauseHi);
         set(GREEN_LED RAMP_STEP_MS, stepDuration);
+        set(GREEN_LED LUT_FLAGS, FLAGS_VALUE);
 
         /* Blue */
         set(BLUE_LED START_IDX, 2 * RAMP_STEPS);
@@ -155,10 +167,13 @@ static void handleNotification(const LightState& state) {
         set(BLUE_LED PAUSE_LO, pauseLo);
         set(BLUE_LED PAUSE_HI, pauseHi);
         set(BLUE_LED RAMP_STEP_MS, stepDuration);
+        set(BLUE_LED LUT_FLAGS, FLAGS_VALUE);
 
         /* Enable blinking. */
-        set(RGB_LED RGB_BLINK, 1);
-    } else {
+        set(RED_LED BLINK, 1);
+        set(GREEN_LED BLINK, 1);
+        set(BLUE_LED BLINK, 1);
+    } else if (state.flashMode != Flash::TIMED || state.flashOnMs != 0) {
         set(RED_LED BRIGHTNESS, redBrightness);
         set(GREEN_LED BRIGHTNESS, greenBrightness);
         set(BLUE_LED BRIGHTNESS, blueBrightness);
