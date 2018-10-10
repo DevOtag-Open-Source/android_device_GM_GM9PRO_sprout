@@ -26,7 +26,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
-import init.bq.rc
+import /vendor/etc/init/hw/init.bq.rc
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
