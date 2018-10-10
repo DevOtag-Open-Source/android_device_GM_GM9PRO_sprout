@@ -14,15 +14,12 @@
 /sys/kernel/boot_wlan(/.*)?                                   u:object_r:sysfs_wifi:s0
 /sys/kernel/debug/rmt_storage(/.*)?                           u:object_r:debugfs_rmts:s0
 
-/vendor/bin/fastboot                                          u:object_r:vendor_shell_exec:s0
-
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service.zangya u:object_r:hal_fingerprint_bq_exec:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service.zangya     u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/android\.hardware\.power@1\.1-service.zangya     u:object_r:hal_power_default_exec:s0
 /vendor/bin/hw/android\.hardware\.thermal@1\.1-service.zangya   u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/hw/android\.hardware\.vibrator@1\.1-service\.zangya u:object_r:hal_vibrator_default_exec:s0
 
-/vendor/bin/init\.zangya\.hdmi\.sh                              u:object_r:qti_init_shell_exec:s0
 /vendor/bin/init\.qcom\.power\.sh                             u:object_r:qti_init_shell_exec:s0
 
 /vendor/usr/keylayout/uinput-fpc.kl                           u:object_r:vendor_keylayout_file:s0
