@@ -181,7 +181,6 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.bq.rc \
     init.target.rc \
     init.zangya.usb.rc \
     init.class_main.sh \

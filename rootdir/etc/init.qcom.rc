@@ -195,6 +195,10 @@ on boot
     # bond0 used by FST Manager
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
+    # Double Tap to Wake
+    chown root system /proc/android_touch/SMWP
+    chmod 0660 /proc/android_touch/SMWP
+
     # Allow access to emmc rawdump block partition and dload sysfs node
     chown root system /dev/block/bootdevice/by-name/rawdump -p /dev/block/
     chmod 0660 /dev/block/bootdevice/by-name/rawdump -p /dev/block/
@@ -539,6 +543,30 @@ service ss_ramdump /vendor/bin/subsystem_ramdump
     group system
     disabled
 
+
+service config_bt_addr /vendor/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
+
+service wdsdaemon /vendor/bin/wdsdaemon -su
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:persist.sys.start_wdsdaemon=1
+    start wdsdaemon
+
+on property:persist.sys.start_wdsdaemon=0
+    stop wdsdaemon
+
+on property:vold.decrypt=trigger_restart_framework
+    start qcom-c_main-sh
+    start wcnss-service
+    start config_bt_addr
+
 on property:persist.sys.ssr.enable_debug=*
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
 
@@ -808,6 +836,7 @@ service cnss-daemon /vendor/bin/cnss-daemon -n -l
 
 on property:sys.shutdown.requested=*
     stop cnss-daemon
+    setprop vendor.peripheral.shutdown_critical_list ""
 
 service mlid /vendor/bin/mlid
     class late_start
