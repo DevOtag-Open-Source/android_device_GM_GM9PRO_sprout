@@ -321,7 +321,7 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/recovery/root/init.recovery.zangya.rc:root/init.recovery.zangya.rc \
+    device/bq/sdm660-common/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
     device/bq/sdm660-common/recovery/root/init.recovery.zangya.usb.rc:root/init.recovery.zangya.usb.rc
 
 # RenderScript HAL
