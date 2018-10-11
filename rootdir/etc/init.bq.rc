@@ -52,80 +52,12 @@ on boot
     chown system system /sys/class/leds/blue/ramp_step_ms
     chown system system /sys/class/leds/green/ramp_step_ms
 
-#add for wifi sar --start
-service wifisarnear /vendor/bin/wifisarnear
-    user root
-    group root
-    oneshot
-    disabled
-
-on property:sys.wifisarnear=1
-    start wifisarnear
-
-service wifisarfar /vendor/bin/wifisarfar
-    user root
-    group root
-    oneshot
-    disabled
-
-on property:sys.wifisarfar=1
-    start wifisarfar
-#add for wifi sar --end
-
-service tpver /vendor/bin/sh /vendor/bin/init.bq.tp.sh
-    class late_start
-    user root
-    oneshot
-
-on property:persist.sys.spk-playback=1
-    start spk_playback1
-
-on property:persist.sys.spk-playback=0
-    start spk_playback0
-
-service tinyhostless_spk /vendor/bin/tinyhostless -D 0 -P 35 -C 11 -p 8 -n 2 -c 1 -r 48000
-    user root
-    group root
-    disabled
-    oneshot
-
-service tinyhostless /vendor/bin/tinyhostless -D 0 -P 5 -C 11 -p 8 -n 2 -c 1 -r 48000
-    user root
-    group root
-    disabled
-    oneshot
-
-on property:sys.tinyhostless=0
-    stop tinyhostless
-
-on property:sys.tinyhostless=1
-    start tinyhostless
-
-on property:sys.tinyhostless-spk=0
-    stop tinyhostless_spk
-
-on property:sys.tinyhostless-spk=1
-    start tinyhostless_spk
-
-#audio loopback test end
-
 on property:sys.shutdown.requested=*
    setprop vendor.peripheral.shutdown_critical_list ""
 
    # Double Tap to Wake
    chown root system /proc/android_touch/SMWP
    chmod 0660 /proc/android_touch/SMWP
-
-on property:sys.boot_completed=1
-    #tp version
-    start tpver
-
-on property:sys.monkey.state=1
-    mkdir /acct/uid_0/random_test
-    write /acct/uid_0/random_test/cgroup.procs ${sys.monkey.pid} 
-
-on property:sys.monkey.state=0
-    rmdir /acct/uid_0/random_test
 
 on property:persist.wlan.cnss_diag=1
     start cnss_diag
