@@ -543,13 +543,6 @@ service ss_ramdump /vendor/bin/subsystem_ramdump
     group system
     disabled
 
-
-service config_bt_addr /vendor/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
-
 service wdsdaemon /vendor/bin/wdsdaemon -su
     user root
     group root
@@ -564,8 +557,6 @@ on property:persist.sys.start_wdsdaemon=0
 
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
-    start wcnss-service
-    start config_bt_addr
 
 on property:persist.sys.ssr.enable_debug=*
     write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
@@ -963,17 +954,6 @@ on property:init.svc.surfaceflinger=restarting
     stop hwcomposer-2-1
     start hwcomposer-2-1
 
-# Logcat dump daemon, dumps logs to logdump partition
-#service logdumpd /system/bin/logcat -b all -v threadtime -D -w /dev/block/bootdevice/by-name/logdump
-#    class core
-#    writepid /dev/cpuset/system-background/tasks
-#    seclabel u:r:logdumpd:s0
-#    disabled
-
-# Logdumpd is enabled only for userdebug non-perf build
-#on property:ro.logdumpd.enabled=1
-#    start logdumpd
-
 service time_daemon /vendor/bin/time_daemon
     class main
     user root
@@ -982,9 +962,3 @@ service time_daemon /vendor/bin/time_daemon
 # Set vendor-ril lib path based on Meta version
 on property:vendor.rild.libpath=*
     setprop rild.libpath ${vendor.rild.libpath}
-
-service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116

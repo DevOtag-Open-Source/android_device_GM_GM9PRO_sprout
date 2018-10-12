@@ -59,7 +59,6 @@ on post-fs-data
 
 on boot
     start rmt_storage
-    start rfs_access
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
     write /dev/cpuset/foreground/boost/cpus 0-7
@@ -104,11 +103,6 @@ service thermal-engine /vendor/bin/thermal-engine
    socket thermal-send-rule stream 0660 system system
    group root
 
-service time_daemon /vendor/bin/time_daemon
-   class late_start
-   user root
-   group root
-
 service adsprpcd /vendor/bin/adsprpcd audiopd
    class main
    user media
@@ -149,31 +143,6 @@ on property:vendor.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
     start vendor.imsrcsservice
 
-service ppd /vendor/bin/mm-pp-dpps
-    class late_start
-    user system
-    group system graphics
-    socket pps stream 0660 system system
-    disabled
-
-on property:init.svc.surfaceflinger=stopped
-    stop ppd
-
-on property:init.svc.surfaceflinger=running
-    start ppd
-
-on property:init.svc.surfaceflinger=restarting
-    stop ppd
-
-on property:init.svc.zygote=stopped
-    stop ppd
-
-on property:init.svc.zygote=running
-    start ppd
-
-on property:init.svc.zygote=restarting
-    stop ppd
-
 on charger
     load_system_props
     start qcom-post-boot
@@ -189,9 +158,3 @@ service hvdcp_opti /vendor/bin/hvdcp_opti
      class main
      user root
      group system wakelock
-
-service smcinvoked /system/bin/smcinvoked
-   class main
-   user system
-   group system
-
