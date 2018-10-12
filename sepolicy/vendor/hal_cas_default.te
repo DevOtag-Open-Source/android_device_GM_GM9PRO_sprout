@@ -1,2 +1,0 @@
-vndbinder_use(hal_cas_default);
-# Allow CAS HAL to use vendor-binder service
