@@ -594,7 +594,7 @@ on post-fs-data
     mkdir /data/FTM_AP 0775 system system
 
     #Create dir for TUI
-    mkdir /data/vendor/tui 0600 system drmrpc
+    mkdir /data/vendor/tui 0700 system system
 
 service iop /vendor/bin/iop
     class main
