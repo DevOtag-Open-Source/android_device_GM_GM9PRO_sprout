@@ -92,7 +92,7 @@ function configure_read_ahead_kb_values() {
 }
 
 function configure_memory_parameters() {
-    # Set Memory paremeters.
+    # Set Memory parameters.
     #
     # Set per_process_reclaim tuning parameters
     # 2GB 64-bit will have aggressive settings when compared to 1GB 32-bit
@@ -176,11 +176,6 @@ else
             echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
             echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
         else
-            # Disable Core Control, enable KLMK for non-go 8909
-            if [ "$ProductName" == "msm8909" ]; then
-                echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
-                echo 1 > /sys/module/lowmemorykiller/parameters/enable_lmk
-            fi
             echo 50 > /sys/module/process_reclaim/parameters/pressure_min
             echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
             echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
@@ -199,12 +194,7 @@ else
 
     SWAP_ENABLE_THRESHOLD=1048576
     swap_enable=`getprop ro.vendor.qti.config.swap`
-
-    if [ -f /sys/devices/soc0/soc_id ]; then
-        soc_id=`cat /sys/devices/soc0/soc_id`
-    else
-        soc_id=`cat /sys/devices/system/soc/soc0/id`
-    fi
+    soc_id=`cat /sys/devices/soc0/soc_id`
 
     # Enable swap initially only for 1 GB targets
     if [ "$MemTotal" -le "$SWAP_ENABLE_THRESHOLD" ] && [ "$swap_enable" == "true" ]; then
@@ -244,17 +234,8 @@ case "$target" in
         # to one of the CPU from the default IRQ affinity mask.
         echo f > /proc/irq/default_smp_affinity
 
-        if [ -f /sys/devices/soc0/soc_id ]; then
-                soc_id=`cat /sys/devices/soc0/soc_id`
-        else
-                soc_id=`cat /sys/devices/system/soc/soc0/id`
-        fi
-
-        if [ -f /sys/devices/soc0/hw_platform ]; then
-                hw_platform=`cat /sys/devices/soc0/hw_platform`
-        else
-                hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
-        fi
+        soc_id=`cat /sys/devices/soc0/soc_id`
+        hw_platform=`cat /sys/devices/soc0/hw_platform`
 
         panel=`cat /sys/class/graphics/fb0/modes`
         if [ "${panel:5:1}" == "x" ]; then
