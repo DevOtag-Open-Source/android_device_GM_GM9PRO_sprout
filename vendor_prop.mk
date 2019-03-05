@@ -48,18 +48,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bt.a2dp.aac_disable=true \
     persist.vendor.bt.enable.splita2dp=true \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aac \
-    qcom.bluetooth.soc=cherokee
+    vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist="org.codeaurora.snapcam,com.bq.camerabq,com.bq.camerabq.debug,org.lineageos.snap" \
     vidc.enc.dcvs.extra-buff-count=2 \
-    persist.camera.customer.config=zangya_camera.xml \
-    persist.camera.exif.rotation=off \
-    persist.camera.hvx.rotation=1 \
-    persist.camera.imglib.usefdlite=1 \
-    persist.camera.lib2d.rotation=on \
-    video.disable.ubwc=1
+    persist.vendor.camera.customer.config=zangya_camera.xml \
+    persist.vendor.camera.exif.rotation=off \
+    persist.vendor.camera.hvx.rotation=1 \
+    persist.vendor.camera.imglib.usefdlite=1 \
+    persist.vendor.camera.lib2d.rotation=on \
+    vendor.video.disable.ubwc=1
 
 # CABL
 PRODUCT_PROPERTY_OVERRIDES += \
