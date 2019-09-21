@@ -206,3 +206,6 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
+
+# Inherit from the proprietary version
+-include vendor/bq/sdm660-common/BoardConfigVendor.mk

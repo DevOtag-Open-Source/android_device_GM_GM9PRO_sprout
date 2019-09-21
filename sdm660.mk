@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Get non-open-source specific aspects
+$(call inherit-product-if-exists, vendor/bq/sdm660-common/sdm660-common-vendor.mk)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/bq/sdm660-common/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := \
