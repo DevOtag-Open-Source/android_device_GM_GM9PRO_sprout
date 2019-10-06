@@ -240,7 +240,7 @@ esac
 #Since lcd density has read only
 #property, it will not overwrite previous set
 #property if any target is setting forcefully.
-set_density_by_fb
+#set_density_by_fb - Set on device tree. BQ uses as default 420
 
 
 # set Lilliput LCD density for ADP
