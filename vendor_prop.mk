@@ -72,18 +72,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # CABL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=2 \
-    config.cabl.xml=1 \
-    config.cabl.path=/vendor/etc \
-    config.cabl.xml.print=1 \
-    debug.cabl.logs=2 \
-    ro.qcom.dpps.panelbased.config=1
+    vendor.display.cabl.config=1 \
+    vendor.display.cabl.config_path=/vendor/etc/CABLConfig.xml \
+    ro.vendor.display.cabl=2
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.gralloc.enable_fb_ubwc=1 \
     debug.sf.hw=1 \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_hwc_vds=1 \
+    debug.sf.latch_unsignaled=1 \
     dev.pm.dyn_samplingrate=1 \
     sdm.debug.disable_partial_split=1 \
-    sdm.debug.disable_skip_validate=1
+    sdm.debug.disable_skip_validate=1 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.display.enable_default_color_mode=1 \
+    vendor.display.lcd_density=420
 
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -110,6 +115,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.RATE_ADAPT_ENABLE=1 \
     persist.dbg.wfc_avail_ovr=0 \
     persist.data.iwlan.enable=true
+
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.vidc.enc.disable_bframes=1 \
+    vendor.vidc.enc.disable.pq=false \
+    vendor.vidc.dec.enable.downscalar=0 \
+    vidc.enc.target_support_bframe=1
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
