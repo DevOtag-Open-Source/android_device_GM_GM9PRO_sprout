@@ -515,3 +515,7 @@ service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
 #   class main
 #   user system
 #   group system
+
+# vold restart
+on property:vold.decrypt=trigger_restart_framework
+    start config_bt_addr
