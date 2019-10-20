@@ -81,7 +81,7 @@ vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcvirt.so
 
 # Bluetooth
--vendor/app/aptxui/aptxui.apk
+-vendor/app/aptxals/aptxals.apk
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/btnvtool
 vendor/bin/hci_qcomm_init
@@ -94,6 +94,7 @@ vendor/lib64/libbtnv.so
 vendor/lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/hw/com.qualcomm.qti.bluetooth_audio@1.0-impl.so
+-vendor/overlay/aptxalsOverlay.apk
 
 # Bluetootk (ANT+)
 vendor/lib/com.qualcomm.qti.ant@1.0.so
