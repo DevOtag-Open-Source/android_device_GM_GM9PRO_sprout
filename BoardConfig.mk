@@ -34,6 +34,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 
 BUILD_BROKEN_DUP_RULES := true
 
+# We still use copy headers.
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 DTS_CODEC_M_ := false
