@@ -1,0 +1,10 @@
+{
+    "target_github": "https://github.com/DevOtag-Open-Source/",
+
+    "target_branch": "eleven",
+
+    "target_trees": ["android_kernel_xiaomi_sdm660|kernel/xiaomi/sdm660",
+                     "android_vendor_GM_GM9PRO_sprout|vendor/GM/GM9PRO_sprout"],
+
+    "target_commits": ""
+}
