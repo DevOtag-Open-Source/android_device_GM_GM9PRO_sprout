@@ -3,7 +3,7 @@
 # Author: trkzmn (DevOtag)
 #
 # Require library(ies)
-from os import system, path, chdir, getcwd
+from os import system, path, chdir, getcwd, popen
 from json import loads
 
 # Define stuff
@@ -84,7 +84,11 @@ Example: $python device/<manufacturer>/<codename>/patch_repo.py""")
             if response==0:
                 pass
             elif response==256:
+                response=popen("git status").read()
                 system("git reset --hard")
+                if "modified" in response:
+                    print("Error: Please fix conflicts manually !!\n{}:\t{}".format(target, patch))
+                    quit()
             else:
                 print("Error: Unknown Error !!")
                 self.__help__()
