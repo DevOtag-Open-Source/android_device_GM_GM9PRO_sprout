@@ -247,6 +247,9 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.sdm660-common
 
 # Media
+PRODUCT_PACKAGES += \
+    libgui_vendor
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(LOCAL_PATH)/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
