@@ -24,10 +24,13 @@ class PatchRepo:
 
         # Time to cherry-pick
         print("Cherry-pick's started...")
-        keys=self.target_commits.keys()
-        for key in keys:
-            self.cherry_pick(key)
-        print("Done.")
+        if not self.target_commits=="":
+            keys=self.target_commits.keys()
+            for key in keys:
+                self.cherry_pick(key)
+            print("Done.")
+        else:
+            print("There is no patch")
         print("All jobs finished successfully. You're ready to building :)")
 
     def __help__(self):
