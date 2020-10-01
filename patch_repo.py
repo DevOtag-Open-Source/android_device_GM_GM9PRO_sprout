@@ -49,7 +49,7 @@ Example: $python device/<manufacturer>/<codename>/patch_repo.py""")
     def clone_tree(self, target):
         tree_name, tree_path=target.split("|")
         if not path.exists(tree_path):
-            cmd="git clone {} -b {} {}".format(self.target_github + tree_name, self.target_branch, tree_path)
+            cmd="git clone {} -b {} {} > /dev/null 2>&1".format(self.target_github + tree_name, self.target_branch, tree_path)
             response=system(cmd)
             if response==32768:
                 print("Error: Couldn't clone {}".format(tree_name))
@@ -74,7 +74,7 @@ Example: $python device/<manufacturer>/<codename>/patch_repo.py""")
             self.__help__()
             quit()
         chdir(target_dir)
-        cmd="git fetch {} {}".format(self.target_github + target, self.target_branch)
+        cmd="git fetch {} {} > /dev/null 2>&1".format(self.target_github + target, self.target_branch)
         response=system(cmd)
         if response==32768:
             print("Error: Couldn't fetch {}".format(target))
@@ -82,13 +82,13 @@ Example: $python device/<manufacturer>/<codename>/patch_repo.py""")
             quit()
 
         for patch in patch_list:
-            cmd="git cherry-pick {}".format(patch)
+            cmd="git cherry-pick {} > /dev/null 2>&1".format(patch)
             response=system(cmd)
             if response==0:
                 pass
             elif response==256:
                 response=popen("git status").read()
-                system("git reset --hard")
+                system("git reset --hard > /dev/null 2>&1")
                 if "modified" in response:
                     print("Error: Please fix conflicts manually !!\n{}:\t{}".format(target, patch))
                     quit()
