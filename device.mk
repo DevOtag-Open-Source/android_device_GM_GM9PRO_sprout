@@ -15,15 +15,15 @@
 #
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/bq/sdm660-common/sdm660-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/GM/GM9PRO_sprout/GM9PRO_sprout-vendor.mk)
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += device/bq/sdm660-common/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
 # Properties
--include device/bq/sdm660-common/vendor_prop.mk
+-include $(LOCAL_PATH)/vendor_prop.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
 # AAPT
@@ -68,12 +68,12 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    device/bq/sdm660-common/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
-    device/bq/sdm660-common/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-    device/bq/sdm660-common/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-    device/bq/sdm660-common/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
-    device/bq/sdm660-common/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
@@ -106,15 +106,15 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
-    device/bq/sdm660-common/configs/camera/zangya_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/zangya_camera.xml \
-    device/bq/sdm660-common/configs/camera/mct_pipeline.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mct_pipeline.xml \
-    device/bq/sdm660-common/configs/camera/s5k2l8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_holitech_zangya_chromatix.xml \
-    device/bq/sdm660-common/configs/camera/s5k2l8_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_ofilm_zangya_chromatix.xml \
-    device/bq/sdm660-common/configs/camera/s5k4h7yx_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_holitech_zangya_chromatix.xml \
-    device/bq/sdm660-common/configs/camera/s5k4h7yx_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_ofilm_zangya_chromatix.xml \
-    device/bq/sdm660-common/configs/camera/s5k5e8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_holitech_zangya_chromatix.xml \
-    device/bq/sdm660-common/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
+    $(LOCAL_PATH)/configs/camera/zangya_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/zangya_camera.xml \
+    $(LOCAL_PATH)/configs/camera/mct_pipeline.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mct_pipeline.xml \
+    $(LOCAL_PATH)/configs/camera/s5k2l8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_holitech_zangya_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k2l8_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_ofilm_zangya_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7yx_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_holitech_zangya_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h7yx_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_ofilm_zangya_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k5e8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_holitech_zangya_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
 
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
@@ -125,7 +125,7 @@ PRODUCT_PACKAGES += \
 
 # CABL
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/cabl/CABLConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/CABLConfig.xml \
+    $(LOCAL_PATH)/configs/cabl/CABLConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/CABLConfig.xml \
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m \
@@ -163,7 +163,7 @@ PRODUCT_PACKAGES += \
 
 # FBE support
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/rootdir/etc/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
+    $(LOCAL_PATH)/rootdir/etc/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 
 # Health
 PRODUCT_PACKAGES += \
@@ -198,7 +198,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.usb.sh \
     init.target.rc \
-    init.bq.usb.configfs.rc \
+    init.usb.configfs.rc \
     init.msm.usb.configfs.rc \
     ueventd.qcom.rc
 
@@ -211,7 +211,7 @@ PRODUCT_PACKAGES += \
 
 # IRSC
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # LED packages
 PRODUCT_PACKAGES += \
@@ -219,9 +219,9 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
-    device/bq/sdm660-common/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-    device/bq/sdm660-common/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    $(LOCAL_PATH)/media/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/media/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
@@ -239,9 +239,9 @@ PRODUCT_PACKAGES += \
     Tag
 
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    device/bq/sdm660-common/configs/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf
+    $(LOCAL_PATH)/configs/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf
 
 # OEM Unlock
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -302,9 +302,9 @@ PRODUCT_PACKAGES += \
 
 # QCOM
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/configs/privapp-permissions-sdm660.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-sdm660.xml \
-    device/bq/sdm660-common/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-    device/bq/sdm660-common/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-sdm660.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-sdm660.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -326,8 +326,8 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
-    device/bq/sdm660-common/recovery/root/init.recovery.zangya.usb.rc:root/init.recovery.zangya.usb.rc
+    $(LOCAL_PATH)/recovery/root/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+    $(LOCAL_PATH)/recovery/root/init.recovery.zangya.usb.rc:root/init.recovery.zangya.usb.rc
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -335,8 +335,8 @@ PRODUCT_PACKAGES += \
 
 # Seccomp
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    device/bq/sdm660-common/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -398,10 +398,10 @@ PRODUCT_PACKAGES += \
 
 # Wi-Fi
 PRODUCT_COPY_FILES += \
-    device/bq/sdm660-common/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
-    device/bq/sdm660-common/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
-    device/bq/sdm660-common/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    device/bq/sdm660-common/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
@@ -413,3 +413,8 @@ PRODUCT_PACKAGES += \
     wificond \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# ZRAM
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.config.zram=true \
+    ro.vendor.qti.config.zramsize=536870912

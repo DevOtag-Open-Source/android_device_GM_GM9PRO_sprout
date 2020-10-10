@@ -87,10 +87,10 @@ LOCAL_MODULE_RELATIVE_PATH := init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE       := init.bq.usb.configfs.rc
+LOCAL_MODULE       := init.usb.configfs.rc
 LOCAL_MODULE_TAGS  := optional eng
 LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES    := etc/init.bq.usb.configfs.rc
+LOCAL_SRC_FILES    := etc/init.usb.configfs.rc
 LOCAL_VENDOR_MODULE    := true
 LOCAL_MODULE_RELATIVE_PATH := init/hw
 include $(BUILD_PREBUILT)

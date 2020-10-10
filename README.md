@@ -1,5 +1,5 @@
-Copyright 2017 - The LineageOS Project
+Copyright 2020 - DevOtag
 
 =====
 
-LineageOS shared common device tree for BQ Aquaris X2 (zangya) / X2 Pro (zangyapro)
+Device tree for GM 9 Pro (GM9PRO_sprout)

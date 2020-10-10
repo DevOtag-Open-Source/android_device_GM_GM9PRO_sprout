@@ -1,5 +1,5 @@
 #
-# vendor props for zangya
+# vendor props for GM9PRO_sprout
 #
 
 
@@ -96,7 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.clientidbase.ms=android-bq-rev2
+    ro.com.google.clientidbase=android-a1-gm-rev1
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \

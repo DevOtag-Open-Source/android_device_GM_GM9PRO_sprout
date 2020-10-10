@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.vibrator@1.1-service.zangyapro"
+#define LOG_TAG "android.hardware.vibrator@1.1-service.sdm660-common"
 
 #include <hidl/HidlTransportSupport.h>
 

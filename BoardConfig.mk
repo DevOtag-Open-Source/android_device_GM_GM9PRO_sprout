@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-COMMON_PATH := device/bq/sdm660-common
+DEVICE_PATH := device/GM/GM9PRO_sprout
 
-TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
@@ -95,6 +95,7 @@ TARGET_USES_64_BIT_BINDER := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 TARGET_USE_QTI_BT_STACK := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
@@ -104,10 +105,10 @@ USE_CAMERA_STUB := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # HIDL
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(COMMON_PATH)/framework_manifest.xml
-DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
-DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -137,6 +138,7 @@ BOARD_KERNEL_TAGS_OFFSET := 0x02000000
 BOARD_RAMDISK_OFFSET := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/bq/sdm660
+TARGET_KERNEL_CONFIG := lineageos_zangya_defconfig
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -156,7 +158,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/root/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
@@ -173,8 +175,8 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 # Timeservice
 BOARD_USES_QC_TIME_SERVICES := true
@@ -201,4 +203,4 @@ WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # Inherit from the proprietary version
--include vendor/bq/sdm660-common/BoardConfigVendor.mk
+-include vendor/GM/GM9PRO_sprout/BoardConfigVendor.mk
