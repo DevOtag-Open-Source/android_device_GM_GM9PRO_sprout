@@ -140,6 +140,8 @@ BOARD_RAMDISK_OFFSET := 0x02200000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/bq/sdm660
 TARGET_KERNEL_CONFIG := lineageos_zangya_defconfig
+TARGET_PRE_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
+PRODUCT_COPY_FILES += $(TARGET_PRE_KERNEL):Image.gz-dtb
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
