@@ -107,14 +107,16 @@ TARGET_SCREEN_WIDTH := 1080
 # Camera
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
-    $(LOCAL_PATH)/configs/camera/zangya_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/zangya_camera.xml \
-    $(LOCAL_PATH)/configs/camera/mct_pipeline.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mct_pipeline.xml \
-    $(LOCAL_PATH)/configs/camera/s5k2l8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_holitech_zangya_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k2l8_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l8_ofilm_zangya_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k4h7yx_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_holitech_zangya_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k4h7yx_ofilm_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h7yx_ofilm_zangya_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k5e8_holitech_zangya_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_holitech_zangya_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/s5k5e8_ofilm_oef0695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k5e8_ofilm_oef0695_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/csidtg_camera.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/csidtg_camera.xml \
+    $(LOCAL_PATH)/configs/camera/csidtg_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/csidtg_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx363_ofilm_ogc0830_back1_i_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx363_ofilm_ogc0830_back1_i_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx363_ofilm_ogc1195_back1_i_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx363_ofilm_ogc1195_back1_i_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/imx363_sunny_a12n12c_back1_ii_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx363_sunny_a12n12c_back1_ii_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3h7_ofilm_off1012_front_iii_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3h7_ofilm_off1012_front_iii_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3h7_sunny_a8s05a_front_i_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3h7_sunny_a8s05a_front_i_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k3h7_tsp_lcs8f01_front_ii_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k3h7_tsp_lcs8f01_front_ii_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h8_ofilm_ogc0831_back2_i_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h8_ofilm_ogc0831_back2_i_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k4h8_sunny_d8s09b_back2_ii_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k4h8_sunny_d8s09b_back2_ii_chromatix.xml
 
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \

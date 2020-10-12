@@ -62,7 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.vendor.camera.af.sync=2 \
     persist.vendor.camera.awb.sync=2 \
-    persist.vendor.camera.customer.config=zangya_camera.xml \
     persist.vendor.camera.exif.rotation=off \
     persist.vendor.camera.expose.aux=1 \
     persist.vendor.camera.hvx.rotation=1 \
