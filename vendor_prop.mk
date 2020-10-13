@@ -145,7 +145,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
     ro.telephony.default_network=9,9 \
     ro.vendor.use_data_netmgrd=true \
-    persist.radio.multisim.config=dsds \
+    persist.radio.multisim.config=ssss \
     persist.radio.VT_CAM_INTERFACE=2
 
 # Sensors
