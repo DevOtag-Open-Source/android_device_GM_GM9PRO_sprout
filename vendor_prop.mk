@@ -83,7 +83,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.lib2d.rotation=on \
     persist.vendor.camera.isp.clock.optmz=0 \
     persist.vendor.camera.preview.ubwc=0 \
-    vendor.video.disable.ubwc=1
+    vendor.video.disable.ubwc=1 \
+    persist.camera.HAL3.enabled=1 \
+    persist.camera.eis.enable=1 \
+    persist.camera.is_mode=4 \
+    persist.camera.stats.test=5 \
+    persist.vendor.camera.HAL3.enabled=1 \
+    persist.vendor.camera.eis.enable=1 \
+    persist.vendor.camera.is_mode=4 \
+    persist.vendor.camera.stats.test=5
 
 # CABL
 PRODUCT_PROPERTY_OVERRIDES += \
