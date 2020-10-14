@@ -149,6 +149,11 @@ on boot
     chown system system /dev/goodix_fp
     chmod 0644          /dev/goodix_fp
 
+    # Begin yutao Double Tap to Wake TEL_L9500_A01-611
+    chown root system /sys/android_touch/wakeup_gesture_enable
+    chmod 666 /sys/android_touch/wakeup_gesture_enable
+    # End yutao Double Tap to Wake TEL_L9500_A01-611
+
 on property:sys.boot_completed=1
     setprop persist.vendor.dpm.nsrm 1
     setprop persist.vendor.dpm.feature 3
