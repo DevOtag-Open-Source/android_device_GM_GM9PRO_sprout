@@ -159,7 +159,7 @@ on property:sys.boot_completed=1
     mkdir /data/vendor/camera 0771 camera camera
 
 #Load WLAN driver
-   insmod /vendor/lib/modules/qca_cld3_wlan.ko
+   insmod /vendor/etc/wifi/qca_cld3_wlan.ko
 
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "rndis_bam"
