@@ -3,6 +3,20 @@
 #
 
 
+#
+### Adreno Team Graphics Drivers prop file
+#
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.adreno.android=9 and above \
+    ro.adreno.sdk=28 \
+    ro.adreno.arch=arm64 \
+    ro.adreno.soc=sdm660 \
+    ro.adreno.series=500 \
+    ro.adreno.edition=OpenGL and Vulkan \
+    ro.adreno.version=4.2 \
+    ro.adreno.opengl=V@474.0 \
+    ro.adreno.vulkan=1.1.128
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
