@@ -221,6 +221,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
+# Kernel
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/Image.gz-dtb:Image.gz-dtb
+
 # LED packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.sdm660-common
