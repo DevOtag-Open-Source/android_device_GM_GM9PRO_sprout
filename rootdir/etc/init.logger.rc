@@ -1,4 +1,4 @@
-service logger /system/bin/logcat -b all -D -f /cache/boot_log.txt
+service logger /system/bin/logcat -b all -D -f /data/boot_log.txt
     class main
     user root
     group root system
@@ -7,7 +7,7 @@ service logger /system/bin/logcat -b all -D -f /cache/boot_log.txt
 
 on post-fs-data
     # Clear existing log and start the service
-    rm /cache/boot_log.txt
+    rm /data/boot_log.txt
     start logger
 
 on property:sys.boot_completed=1
