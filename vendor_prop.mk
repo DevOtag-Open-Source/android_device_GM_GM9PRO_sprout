@@ -7,14 +7,14 @@
 ### Adreno Team Graphics Drivers prop file
 #
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.adreno.android=Android Q \
-    ro.adreno.sdk=29 \
+    ro.adreno.android=9 and above \
+    ro.adreno.sdk=28 \
     ro.adreno.arch=arm64 \
     ro.adreno.soc=sdm660 \
     ro.adreno.series=500 \
     ro.adreno.edition=OpenGL and Vulkan \
-    ro.adreno.version=5.5 \
-    ro.adreno.opengl=V@0490.0 \
+    ro.adreno.version=4.2 \
+    ro.adreno.opengl=V@474.0 \
     ro.adreno.vulkan=1.1.128
 
 # Audio
