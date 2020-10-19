@@ -11,6 +11,9 @@ $(call inherit-product-if-exists, vendor/GM/GM9PRO_sprout/GM9PRO_sprout-vendor.m
 # Device
 $(call inherit-product, device/GM/GM9PRO_sprout/device.mk)
 
+# Boot Animation
+TARGET_BOOT_ANIMATION_RES := 1080
+
 # Device identifiers
 PRODUCT_DEVICE := GM9PRO_sprout
 PRODUCT_NAME := revengeos_GM9PRO_sprout
