@@ -154,6 +154,12 @@ on boot
     chmod 666 /sys/android_touch/wakeup_gesture_enable
     # End yutao Double Tap to Wake TEL_L9500_A01-611
 
+on property:enable_dt2w=false
+    write /sys/android_touch/wakeup_gesture_enable 0
+
+on property:enable_dt2w=true
+    write /sys/android_touch/wakeup_gesture_enable 1
+
 on property:sys.boot_completed=1
     setprop persist.vendor.dpm.nsrm 1
     setprop persist.vendor.dpm.feature 3

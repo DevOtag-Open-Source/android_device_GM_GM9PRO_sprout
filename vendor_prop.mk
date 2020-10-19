@@ -115,6 +115,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.lcd_density=420 \
     vendor.opengles.version=196610
 
+# DT2W
+PRODUCT_PROPERTY_OVERRIDES += \
+    enable_dt2w=false
+
 # Google
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-a1-gm-rev1
