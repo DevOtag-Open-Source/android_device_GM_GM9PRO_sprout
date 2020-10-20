@@ -138,6 +138,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
+# DevOtag
+PRODUCT_PACKAGES += \
+    DevOtag
+
 # Doze
 PRODUCT_PACKAGES += \
     Doze
