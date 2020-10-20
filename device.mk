@@ -106,6 +106,11 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 2160
 TARGET_SCREEN_WIDTH := 1080
 
+# Build libhwbinder/libhidltransport
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhwbinder
+
 # Camera
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
