@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-gpt_utils_common_cflags := -Wall -Werror
+gpt_utils_common_cflags := -Wall -w
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := gpt-utils.cpp
