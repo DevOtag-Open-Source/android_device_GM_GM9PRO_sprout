@@ -6,5 +6,7 @@
     "target_trees": ["android_kernel_xiaomi_sdm660|kernel/xiaomi/sdm660",
                      "android_vendor_GM_GM9PRO_sprout|vendor/GM/GM9PRO_sprout"],
 
-    "target_commits": ""
+    "target_commits": {
+            "android_build_make": "a7a2aecdfcfbdb3677247b6c87eb3658007fd848"
+    }
 }
