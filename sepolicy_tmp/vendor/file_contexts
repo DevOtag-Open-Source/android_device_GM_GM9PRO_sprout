@@ -1,0 +1,11 @@
+# BT firmware
+/bt_firmware(/.*)?      u:object_r:bt_firmware_file:s0
+
+# Dsp
+/dsp                    u:object_r:rootfs:s0
+
+# Files in firmware
+/firmware(/.*)?         u:object_r:firmware_file:s0
+
+# Persist
+/persist(/.*)?          u:object_r:persist_file:s0
