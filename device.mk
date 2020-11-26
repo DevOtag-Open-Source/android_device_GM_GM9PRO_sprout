@@ -427,3 +427,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.config.zram=true \
     ro.vendor.qti.config.zramsize=536870912
+
+# Adds face unlock and VFOD (Virtual FOD). Thanks to @Tenshi2112 for providing me the flags.
+# If you think VFOD is unnecessary and don't want it to take place on your build, add hashtag to the beginning of second flag and it will be ignored.
+TARGET_SUPPORT_FACE_UNLOCK := true
+TARGET_HAS_FOD := true
