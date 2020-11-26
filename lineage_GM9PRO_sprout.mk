@@ -27,7 +27,3 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := 'HUAWEI/CLT-L29/HWCLT:8.1.0/HUAWEICLT-L29/128(C432):user/release-keys'
 
 PRODUCT_GMS_CLIENTID_BASE := android-GM
-
-# Adds face unlock if package is available on ROM source
-# Thanks to @Tenshi2112 for telling me about it
-TARGET_SUPPORT_FACE_UNLOCK := true
