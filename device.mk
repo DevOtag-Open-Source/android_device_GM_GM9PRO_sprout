@@ -437,3 +437,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.config.zram=true \
     ro.vendor.qti.config.zramsize=536870912
+
+# Face unlock - Credit: @Tenshi2112
+TARGET_SUPPORT_FACE_UNLOCK := true
