@@ -131,7 +131,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.ROTATION_ENABLE=1 \
     persist.radio.RATE_ADAPT_ENABLE=1 \
     persist.dbg.wfc_avail_ovr=1 \
-    persist.data.iwlan.enable=true
+    persist.data.iwlan.enable=true \
+    persist.sys.phh.ims.caf=true
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
