@@ -117,8 +117,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dbg.volte_avail_ovr=0 \
-    persist.dbg.allow_ims_off=0 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.allow_ims_off=1 \
     persist.ims.enableADBLogs=1 \
     persist.ims.enableDebugLogs=1 \
     persist.radio.calls.on.ims=true \
@@ -126,11 +126,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.jbims=1 \
     persist.radio.domain.ps=false \
     persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.dbg.vt_avail_ovr=0 \
+    persist.dbg.vt_avail_ovr=1 \
     persist.radio.videopause.mode=1 \
     persist.radio.ROTATION_ENABLE=1 \
     persist.radio.RATE_ADAPT_ENABLE=1 \
-    persist.dbg.wfc_avail_ovr=0 \
+    persist.dbg.wfc_avail_ovr=1 \
     persist.data.iwlan.enable=true
 
 # Media
