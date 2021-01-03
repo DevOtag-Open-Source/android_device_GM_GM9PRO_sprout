@@ -7,6 +7,7 @@
                      "android_vendor_GM_GM9PRO_sprout|vendor/GM/GM9PRO_sprout"],
 
     "target_commits": {
-            "android_build_make": "d66bde28b74305279842617ca31bc872598d3662"
+            "android_build_make": "d66bde28b74305279842617ca31bc872598d3662",
+            "android_frameworks_native": "9465ddef523e5123d719ba8519177934fa6ac8e5"
     }
 }
