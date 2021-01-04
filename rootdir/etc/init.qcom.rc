@@ -423,6 +423,9 @@ on post-fs-data
     #Start move time data to /data/vendor once post-fs-data done
     start vendor.move_time_data
 
+    # Set right perm for obb folder
+    chmod 0770 /data/media/0/Android/obb
+
 service nqnfcinfo /system/vendor/bin/nqnfcinfo
     class late_start
     group nfc
