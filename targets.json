@@ -8,6 +8,7 @@
 
     "target_commits": {
             "android_build_make": "d66bde28b74305279842617ca31bc872598d3662",
-            "android_frameworks_native": "9465ddef523e5123d719ba8519177934fa6ac8e5"
+            "android_frameworks_native": "9465ddef523e5123d719ba8519177934fa6ac8e5",
+            "android_system_security": "15633a3d29bf727b83083f2c49d906c16527d389"
     }
 }
