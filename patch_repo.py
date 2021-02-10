@@ -62,7 +62,7 @@ Example: $python device/<manufacturer>/<codename>/patch_repo.py""")
         value_type=type(value)
         patch_list=list()
 
-        if str(value_type)[7:-2]=="list":
+        if str(value_type).split("'")[-2]=="list":
             for val in value:
                 patch_list.append(val)
         else:
